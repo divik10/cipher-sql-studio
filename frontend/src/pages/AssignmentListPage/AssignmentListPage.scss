@@ -1,0 +1,147 @@
+@use '../../styles/variables' as *;
+@use '../../styles/mixins' as *;
+
+.assignment-list-page {
+    padding: $space-4 $space-3;
+    max-width: 1100px;
+    margin: 0 auto;
+
+    &__header {
+        margin-bottom: $space-5;
+        text-align: center;
+    }
+
+    &__title {
+        font-family: $font-mono;
+        font-size: clamp(1.8rem, 5vw, 2.8rem);
+        color: $color-primary;
+        letter-spacing: -0.5px;
+        margin-bottom: $space-2;
+    }
+
+    &__subtitle {
+        color: $color-muted;
+        font-size: 1rem;
+    }
+
+    &__filters {
+        display: flex;
+        gap: $space-2;
+        flex-wrap: wrap;
+        justify-content: center;
+        margin-bottom: $space-5;
+    }
+
+    &__status {
+        text-align: center;
+        color: $color-muted;
+        padding: $space-5 0;
+    }
+
+    &__error {
+        text-align: center;
+        color: #FF4D4D;
+        padding: $space-5 0;
+    }
+
+    &__grid {
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: $space-3;
+
+        @include respond-to(tablet) {
+            grid-template-columns: repeat(2, 1fr);
+        }
+
+        @include respond-to(desktop) {
+            grid-template-columns: repeat(3, 1fr);
+        }
+    }
+}
+
+.filter-btn {
+    padding: $space-1 $space-3;
+    border: 1px solid $color-muted;
+    background: transparent;
+    color: $color-text;
+    border-radius: 20px;
+    cursor: pointer;
+    font-family: $font-sans;
+    font-size: 0.85rem;
+    transition: border-color 0.2s, color 0.2s;
+
+    &:hover {
+        border-color: $color-text;
+    }
+
+    &--active {
+        border-color: $color-primary;
+        color: $color-primary;
+        background: rgba(0, 191, 255, 0.08);
+    }
+}
+
+.assignment-card {
+    background: $color-card-bg;
+    border: 1px solid #30363d;
+    border-radius: 10px;
+    padding: $space-4;
+    cursor: pointer;
+    transition: border-color 0.2s ease, transform 0.15s ease, box-shadow 0.2s ease;
+    display: flex;
+    flex-direction: column;
+    gap: $space-2;
+
+    &:hover {
+        border-color: $color-primary;
+        transform: translateY(-3px);
+        box-shadow: 0 8px 24px rgba(0, 191, 255, 0.1);
+    }
+
+    &--easy .assignment-card__badge {
+        color: $color-success;
+        border-color: $color-success;
+    }
+
+    &--medium .assignment-card__badge {
+        color: #FFA500;
+        border-color: #FFA500;
+    }
+
+    &--hard .assignment-card__badge {
+        color: #FF4D4D;
+        border-color: #FF4D4D;
+    }
+
+    &__badge {
+        display: inline-block;
+        font-size: 0.65rem;
+        border: 1px solid;
+        border-radius: 20px;
+        padding: 2px $space-2;
+        text-transform: uppercase;
+        font-family: $font-mono;
+        letter-spacing: 0.05em;
+        align-self: flex-start;
+    }
+
+    &__title {
+        font-size: 1rem;
+        font-weight: 600;
+        color: $color-text;
+    }
+
+    &__desc {
+        color: $color-muted;
+        font-size: 0.85rem;
+        line-height: 1.55;
+        flex: 1;
+    }
+
+    &__cta {
+        font-size: 0.8rem;
+        color: $color-primary;
+        margin-top: $space-1;
+        font-family: $font-mono;
+    }
+}

@@ -1,0 +1,25 @@
+@use './styles/variables' as *;
+@use './styles/mixins' as *;
+@use './styles/reset';
+@use './styles/typography';
+
+body {
+    background-color: $color-bg;
+    color: $color-text;
+    font-family: $font-sans;
+    line-height: 1.5;
+    -webkit-font-smoothing: antialiased;
+}
+
+a {
+    color: $color-primary;
+    text-decoration: none;
+
+    &:hover {
+        text-decoration: underline;
+    }
+}
+
+* {
+    box-sizing: border-box;
+}

@@ -1,0 +1,32 @@
+@use './variables' as *;
+
+// Flexbox helper
+@mixin flex-center($direction: row) {
+    display: flex;
+    flex-direction: $direction;
+    justify-content: center;
+    align-items: center;
+}
+
+// Mobile-first responsive breakpoints
+@mixin respond-to($breakpoint) {
+    @if $breakpoint ==tablet {
+        @media (min-width: #{$bp-tablet}) {
+            @content;
+        }
+    }
+
+    @else if $breakpoint ==desktop {
+        @media (min-width: #{$bp-desktop}) {
+            @content;
+        }
+    }
+}
+
+// Text truncation
+@mixin truncate($max-width) {
+    max-width: $max-width;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}

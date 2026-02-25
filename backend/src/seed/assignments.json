@@ -1,0 +1,74 @@
+[
+  {
+    "id": "1",
+    "title": "Find High Earners",
+    "difficulty": "Easy",
+    "description": "Retrieve the names and salaries of all employees who earn more than $80,000 per year. Sort the results by salary in descending order.",
+    "hint": "Think about filtering rows using a WHERE clause. What condition would match employees with a salary above a certain value? The ORDER BY clause controls the sorting.",
+    "sampleTable": "employees",
+    "expectedCols": ["name", "salary"]
+  },
+  {
+    "id": "2",
+    "title": "Count Employees per Department",
+    "difficulty": "Easy",
+    "description": "For each department, find the total number of employees. Return the department name and the employee count, ordered by count descending.",
+    "hint": "You need to combine (JOIN) two tables to get the department name alongside employee data. Then GROUP BY the department to aggregate rows.",
+    "sampleTable": "employees",
+    "expectedCols": ["name", "employee_count"]
+  },
+  {
+    "id": "3",
+    "title": "Average Salary by Department",
+    "difficulty": "Medium",
+    "description": "Calculate the average salary for each department. Only show departments where the average salary exceeds $70,000. Include the department name and the rounded average salary.",
+    "hint": "Aggregate functions like AVG() work on grouped rows. To filter groups (not individual rows), you need a clause that applies after GROUP BY.",
+    "sampleTable": "employees",
+    "expectedCols": ["name", "avg_salary"]
+  },
+  {
+    "id": "4",
+    "title": "Top Spending Customers",
+    "difficulty": "Medium",
+    "description": "Find the top 5 customers by total order amount. Return the customer name, city, and their total spending. Sort by total spending descending.",
+    "hint": "Join customers with orders, then use an aggregate to sum amounts per customer. To limit the result to the top 5, look into the LIMIT clause.",
+    "sampleTable": "orders",
+    "expectedCols": ["name", "city", "total_spent"]
+  },
+  {
+    "id": "5",
+    "title": "Departments Over Budget Threshold",
+    "difficulty": "Medium",
+    "description": "List all departments whose total employee salary cost exceeds 50% of their allocated budget. Return the department name, budget, total salary cost, and the percentage used.",
+    "hint": "You'll need to aggregate salaries per department and then compare the sum to the budget. A calculated column using arithmetic directly in SELECT can help show the percentage.",
+    "sampleTable": "departments",
+    "expectedCols": ["name", "budget", "total_salaries", "percentage_used"]
+  },
+  {
+    "id": "6",
+    "title": "Employees with No Orders in Their Customer's City",
+    "difficulty": "Hard",
+    "description": "Find employees who are based in a city that has no customers. Return their name, department name, and implied city (assume all employees are located in 'New York' for this exercise — find employees in departments not represented in orders).",
+    "hint": "Think about using a subquery or NOT IN / NOT EXISTS to identify departments that do not appear in a related set. Subqueries can return lists of values to filter against.",
+    "sampleTable": "employees",
+    "expectedCols": ["name", "department"]
+  },
+  {
+    "id": "7",
+    "title": "Month-over-Month Order Growth",
+    "difficulty": "Hard",
+    "description": "For each month in 2024, calculate the total order revenue. Show the month, total revenue, and how much it changed compared to the previous month (difference in absolute value).",
+    "hint": "Extracting parts of a date (like year and month) lets you group by time period. To compare a row to the previous row, look into window functions like LAG().",
+    "sampleTable": "orders",
+    "expectedCols": ["month", "total_revenue", "revenue_change"]
+  },
+  {
+    "id": "8",
+    "title": "Longest-Tenured Employees per Department",
+    "difficulty": "Hard",
+    "description": "For each department, find the employee who has been with the company the longest (earliest hire_date). Return the department name, employee name, and their hire date.",
+    "hint": "You need to find one row per department based on a condition within the group. Window functions with RANK() or ROW_NUMBER() partitioned by department can help identify the top record per group.",
+    "sampleTable": "employees",
+    "expectedCols": ["department", "name", "hire_date"]
+  }
+]

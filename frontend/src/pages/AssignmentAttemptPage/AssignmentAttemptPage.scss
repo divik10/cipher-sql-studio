@@ -1,0 +1,290 @@
+@use '../../styles/variables' as *;
+@use '../../styles/mixins' as *;
+
+.attempt-page {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+
+    @include respond-to(desktop) {
+        flex-direction: row;
+        height: 100vh;
+        overflow: hidden;
+    }
+
+    &__status {
+        padding: $space-5;
+        color: $color-muted;
+        text-align: center;
+
+        &--error {
+            color: #FF4D4D;
+        }
+    }
+
+    // ── Left panel ──────────────────────────────────────────────────
+    &__left {
+        padding: $space-4 $space-3;
+        background: $color-card-bg;
+        border-bottom: 1px solid #30363d;
+
+        @include respond-to(desktop) {
+            width: 360px;
+            min-width: 300px;
+            border-bottom: none;
+            border-right: 1px solid #30363d;
+            overflow-y: auto;
+        }
+    }
+
+    &__back {
+        display: inline-block;
+        margin-bottom: $space-3;
+        color: $color-muted;
+        font-size: 0.85rem;
+        text-decoration: none;
+        transition: color 0.15s;
+
+        &:hover {
+            color: $color-text;
+        }
+    }
+
+    &__badge {
+        display: inline-block;
+        font-size: 0.65rem;
+        border: 1px solid;
+        border-radius: 20px;
+        padding: 2px $space-2;
+        text-transform: uppercase;
+        font-family: $font-mono;
+        letter-spacing: 0.05em;
+        margin-bottom: $space-2;
+
+        &--easy {
+            color: $color-success;
+            border-color: $color-success;
+        }
+
+        &--medium {
+            color: #FFA500;
+            border-color: #FFA500;
+        }
+
+        &--hard {
+            color: #FF4D4D;
+            border-color: #FF4D4D;
+        }
+    }
+
+    &__title {
+        font-size: 1.2rem;
+        font-weight: 700;
+        margin-bottom: $space-2;
+        line-height: 1.3;
+    }
+
+    &__desc {
+        color: $color-muted;
+        font-size: 0.875rem;
+        line-height: 1.65;
+        margin-bottom: $space-4;
+    }
+
+    // ── Right panel ─────────────────────────────────────────────────
+    &__right {
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+        gap: $space-3;
+        padding: $space-4 $space-3;
+        overflow-y: auto;
+    }
+
+    &__editor-wrap {
+        border: 1px solid #30363d;
+        border-radius: 8px;
+        overflow: hidden;
+        background: #1e1e1e;
+    }
+
+    &__actions {
+        display: flex;
+        gap: $space-2;
+        align-items: center;
+        flex-wrap: wrap;
+    }
+
+    &__shortcut {
+        font-size: 0.75rem;
+        color: $color-muted;
+        margin-left: $space-1;
+        font-family: $font-mono;
+    }
+
+    &__exec-error {
+        background: rgba(255, 77, 77, 0.08);
+        border: 1px solid #FF4D4D;
+        border-radius: 8px;
+        padding: $space-3;
+        color: #FF4D4D;
+        font-family: $font-mono;
+        font-size: 0.85rem;
+        line-height: 1.5;
+        display: flex;
+        flex-direction: column;
+        gap: $space-1;
+
+        &-label {
+            font-weight: 700;
+            font-size: 0.7rem;
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+        }
+    }
+
+    &__hint {
+        background: rgba(0, 191, 255, 0.06);
+        border: 1px solid $color-primary;
+        border-radius: 8px;
+        padding: $space-3;
+        font-size: 0.9rem;
+        line-height: 1.65;
+        display: flex;
+        flex-direction: column;
+        gap: $space-2;
+
+        &-label {
+            font-weight: 700;
+            font-size: 0.7rem;
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+            color: $color-primary;
+        }
+
+        p {
+            color: $color-text;
+        }
+    }
+}
+
+// ── Buttons ────────────────────────────────────────────────────────
+.btn {
+    padding: $space-2 $space-4;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 0.9rem;
+    border: none;
+    font-family: $font-sans;
+    font-weight: 500;
+    transition: opacity 0.2s, background 0.2s;
+
+    &:disabled {
+        opacity: 0.45;
+        cursor: not-allowed;
+    }
+
+    &--primary {
+        background: $color-primary;
+        color: #000;
+        font-weight: 700;
+
+        &:hover:not(:disabled) {
+            background: lighten(#00BFFF, 8%);
+        }
+    }
+
+    &--secondary {
+        background: #21262d;
+        color: $color-text;
+        border: 1px solid #30363d;
+
+        &:hover:not(:disabled) {
+            background: #2d333b;
+        }
+    }
+}
+
+// ── Data Viewer ────────────────────────────────────────────────────
+.data-viewer {
+    &__heading {
+        font-size: 0.75rem;
+        color: $color-muted;
+        text-transform: uppercase;
+        letter-spacing: 0.08em;
+        margin-bottom: $space-2;
+        font-family: $font-mono;
+    }
+
+    &__scroll {
+        overflow-x: auto;
+        border-radius: 6px;
+    }
+
+    &__table {
+        border-collapse: collapse;
+        font-size: 0.78rem;
+        font-family: $font-mono;
+        width: 100%;
+
+        th,
+        td {
+            padding: $space-1 $space-2;
+            border: 1px solid #30363d;
+            white-space: nowrap;
+            text-align: left;
+        }
+
+        th {
+            background: #1c2128;
+            color: $color-muted;
+        }
+
+        tr:hover td {
+            background: rgba(255, 255, 255, 0.03);
+        }
+    }
+}
+
+// ── Results Table ──────────────────────────────────────────────────
+.results-table {
+    &__meta {
+        font-size: 0.78rem;
+        color: $color-muted;
+        margin-bottom: $space-2;
+        font-family: $font-mono;
+    }
+
+    &__scroll {
+        overflow-x: auto;
+        border-radius: 6px;
+    }
+
+    &__table {
+        border-collapse: collapse;
+        font-size: 0.85rem;
+        font-family: $font-mono;
+        width: 100%;
+
+        th,
+        td {
+            padding: $space-2;
+            border: 1px solid #30363d;
+            white-space: nowrap;
+            text-align: left;
+        }
+
+        th {
+            background: #1c2128;
+            color: $color-primary;
+        }
+
+        tr:nth-child(even) td {
+            background: rgba(255, 255, 255, 0.02);
+        }
+
+        tr:hover td {
+            background: rgba(0, 191, 255, 0.04);
+        }
+    }
+}

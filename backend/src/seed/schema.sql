@@ -1,0 +1,28 @@
+CREATE TABLE IF NOT EXISTS departments (
+  id SERIAL PRIMARY KEY,
+  name VARCHAR(100) NOT NULL,
+  budget NUMERIC(12, 2) NOT NULL
+);
+
+CREATE TABLE IF NOT EXISTS employees (
+  id SERIAL PRIMARY KEY,
+  name VARCHAR(100) NOT NULL,
+  department_id INT REFERENCES departments(id),
+  salary NUMERIC(10, 2) NOT NULL,
+  hire_date DATE NOT NULL
+);
+
+CREATE TABLE IF NOT EXISTS customers (
+  id SERIAL PRIMARY KEY,
+  name VARCHAR(100) NOT NULL,
+  email VARCHAR(150) UNIQUE NOT NULL,
+  city VARCHAR(100) NOT NULL
+);
+
+CREATE TABLE IF NOT EXISTS orders (
+  id SERIAL PRIMARY KEY,
+  customer_id INT REFERENCES customers(id),
+  product VARCHAR(150) NOT NULL,
+  amount NUMERIC(10, 2) NOT NULL,
+  created_at TIMESTAMP NOT NULL DEFAULT NOW()
+);
