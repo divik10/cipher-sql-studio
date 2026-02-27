@@ -1,86 +1,67 @@
 # CipherSQLStudio
 
-CipherSQLStudio is a browser-based SQL learning platform where users can practice SQL queries against pre-configured assignments using real sample data. The platform focuses on learning, experimentation, and guidance — not database creation.
+**CipherSQLStudio** is a fully deployed, browser-based SQL learning platform where users can practice SQL queries against pre-configured assignments using real sample data. The platform is designed for structured learning, experimentation, and guided problem-solving — not database creation.
+
+All services (frontend, backend, databases, and LLM integration) are fully deployed and running in production.
 
 ---
 
-## Features
+## 🚀 Features
 
-- Assignment listing with difficulty levels (Easy / Medium / Hard)
-- SQL editor with real-time query execution
-- Intelligent, non-revealing hints using an LLM (Gemini)
-- Query results and error feedback in tabular format
-- Mobile-first, responsive user interface
-- Graceful handling when backend services are unavailable
+- Assignment listing categorized by difficulty levels (Easy / Medium / Hard)  
+- Interactive SQL editor with real-time query execution  
+- Intelligent, non-revealing hints powered by Google Gemini (LLM)  
+- Query results and error feedback displayed in clean tabular format  
+- Mobile-first, fully responsive UI  
+- Robust error handling and graceful fallback mechanisms  
+- Persistent user attempts stored securely  
 
 ---
 
-## Tech Stack
+## 🛠 Tech Stack
 
 ### Frontend
-- React
-- Vite
-- SCSS (vanilla, mobile-first)
+- React  
+- Vite  
+- SCSS (vanilla, mobile-first architecture)  
 
 ### Backend
-- Node.js
-- Express.js
+- Node.js  
+- Express.js  
 
 ### Databases
-- PostgreSQL (read-only sandbox for assignments)
-- MongoDB (for saving user attempts)
+- PostgreSQL (read-only sandbox environment for SQL assignments)  
+- MongoDB (for storing user attempts and progress)
 
-### LLM
+### LLM Integration
 - Google Gemini (Free Tier)
 
 ---
 
-## Running the Project Locally
+## 🌐 Deployment
 
-### Backend (Required for full functionality)
+- Frontend: Deployed on Vercel  
+- Backend: Deployed and fully operational  
+- PostgreSQL: Hosted sandbox database for safe query execution  
+- MongoDB: Cloud-hosted for persistent storage  
 
-```bash
-cd backend
-npm install
-npm run dev
+All APIs, database integrations, and LLM logic are fully implemented and connected in the deployed environment.
 
-The backend will start on:
+---
 
-http://localhost:4000
+## 🎯 Project Scope
 
-### Frontend
-cd frontend
-npm install
-npm run dev
+CipherSQLStudio is **not** a database creation tool.
 
-The frontend will run on:
+All assignments and sample data are pre-configured by administrators. The platform focuses on:
 
-http://localhost:5173
+- Writing SQL queries  
+- Executing queries safely in a controlled environment  
+- Understanding SQL concepts through practice  
+- Guided learning via intelligent hints  
 
-## Deployment Notes
+---
 
-The frontend is deployed on Vercel for demonstration purposes.
+## 👨‍💻 Author
 
-##The backend is intended to be run locally due to free-tier hosting limitations.
-
-All backend APIs, database integrations, and LLM logic are fully implemented and documented.
-
-The frontend gracefully displays informative messages if the backend is unavailable.
-
-Project Scope
-
-##This project is not a database creation tool.
-
-All assignments and sample data are pre-inserted by administrators. The focus is on:
-
-Writing SQL queries
-
-Executing queries safely
-
-Understanding SQL concepts
-
-Guided learning through intelligent hints
-
-Author
-
-##Divik Satija
+**Divik Satija**
