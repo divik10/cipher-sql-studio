@@ -6,7 +6,7 @@ All services (frontend, backend, databases, and LLM integration) are fully deplo
 
 ---
 
-## 🚀 Features
+##  Features
 
 - Assignment listing categorized by difficulty levels (Easy / Medium / Hard)  
 - Interactive SQL editor with real-time query execution  
@@ -18,7 +18,7 @@ All services (frontend, backend, databases, and LLM integration) are fully deplo
 
 ---
 
-## 🛠 Tech Stack
+##  Tech Stack
 
 ### Frontend
 - React  
@@ -38,7 +38,7 @@ All services (frontend, backend, databases, and LLM integration) are fully deplo
 
 ---
 
-## 🌐 Deployment
+## Deployment
 
 - Frontend: Deployed on Vercel  
 - Backend: Deployed and fully operational  
@@ -49,7 +49,7 @@ All APIs, database integrations, and LLM logic are fully implemented and connect
 
 ---
 
-## 🎯 Project Scope
+##  Project Scope
 
 CipherSQLStudio is **not** a database creation tool.
 
@@ -62,6 +62,6 @@ All assignments and sample data are pre-configured by administrators. The platfo
 
 ---
 
-## 👨‍💻 Author
+##  Author
 
 **Divik Satija**
