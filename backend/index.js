@@ -54,10 +54,20 @@ app.use((req, res) => {
 app.use(errorHandler);
 
 const start = async () => {
-    await connect();
-    app.listen(PORT, () => {
-        console.log(`CipherSQLStudio backend running on http://localhost:${PORT}`);
-    });
-};
+  try {
+      if (process.env.MONGO_URI) {
+          await connect();
+          console.log("MongoDB connected");
+      } else {
+          console.log("MongoDB not configured. Skipping connection.");
+      }
 
+      app.listen(PORT, () => {
+          console.log(`Server running on port ${PORT}`);
+      });
+  } catch (err) {
+      console.error("Startup error:", err.message);
+      process.exit(1);
+  }
+};
 start();
